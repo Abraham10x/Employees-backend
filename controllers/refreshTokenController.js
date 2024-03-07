@@ -6,7 +6,6 @@ const userDB = {
 };
 
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
 
 const handleRequestToken = (req, res) => {
   const cookies = req.cookies;
