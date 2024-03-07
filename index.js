@@ -2,14 +2,18 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require("cors");
+const cokkieParser = require("cookie-parser");
 const { logger, logEvents } = require("./logEvents");
 const corsOptions = require("./config/corsOptions");
 const verifyJWT = require("./middleware/verifyJWT");
-const cokkieParser = require("cookie-parser");
+const credientials = require("./middleware/credentials");
 const PORT = process.env.PORT || 3500;
 
 // custom middleware logger
 app.use(logger);
+
+// Credientials
+app.use(credientials);
 
 // cors setup
 app.use(cors(corsOptions));
